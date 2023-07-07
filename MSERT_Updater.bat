@@ -5,7 +5,7 @@ set MsertServer=https://go.microsoft.com/fwlink/?LinkId=212732
 set MsertServerTest=go.microsoft.com
 tasklist /nh /fi "imagename eq MSERT.exe" | findstr /l /i "MSERT.exe" > nul
 if %ErrorLevel% equ 0 (
-   echo Microsoft Safety Scanner Updater is running. Exiting...
+   echo Microsoft Safety Scanner is running. Exiting...
    timeout /t 5 > nul
    exit
 ) else (
