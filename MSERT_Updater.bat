@@ -1,7 +1,8 @@
 @echo off
+title Microsoft Safety Scanner Updater
 set MsertFolder=C:\Temp\Microsoft Safety Scanner
 set MsertServer=https://go.microsoft.com/fwlink/?LinkId=212732
-title Microsoft Safety Scanner Updater
+set MsertServerTest=go.microsoft.com
 tasklist /nh /fi "imagename eq MSERT.exe" | findstr /l /i "MSERT.exe" > nul
 if %ErrorLevel% equ 0 (
    echo Microsoft Safety Scanner Updater is running. Exiting...
@@ -12,7 +13,7 @@ if %ErrorLevel% equ 0 (
 )
 
 :ServerTest
-ping /n 1 go.microsoft.com > nul
+ping /n 1 %MsertServerTest% > nul
 if %ErrorLevel% equ 0 (
    if not exist "%MsertFolder%" (
       mkdir "%MsertFolder%"
