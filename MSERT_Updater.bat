@@ -1,5 +1,33 @@
 @echo off
+set MsertFolder=C:\Temp\Microsoft Safety Scanner
+set MsertServer=https://go.microsoft.com/fwlink/?LinkId=212732
 title Microsoft Safety Scanner Updater
-if not exist "C:\Temp\Microsoft Safety Scanner" (mkdir "C:\Temp\Microsoft Safety Scanner")
-bitsadmin /transfer "Update Microsoft Safety Scanner" /priority foreground "https://go.microsoft.com/fwlink/?LinkId=212732" "C:\Temp\Microsoft Safety Scanner\MSERT.exe"
-start "" "C:\Temp\Microsoft Safety Scanner\MSERT.exe"
+tasklist /nh /fi "imagename eq MSERT.exe" | findstr /l /i "MSERT.exe" > nul
+if %ErrorLevel% equ 0 (
+   echo Microsoft Safety Scanner Updater is running. Exiting...
+   timeout /t 5 > nul
+   exit
+) else (
+   goto :ServerTest
+)
+
+:ServerTest
+ping /n 1 go.microsoft.com > nul
+if %ErrorLevel% equ 0 (
+   if not exist "%MsertFolder%" (
+      mkdir "%MsertFolder%"
+   )
+   echo Updating Microsoft Safety Scanner...
+   bitsadmin /transfer "Update Microsoft Safety Scanner" /priority foreground "%MsertServer%" "%MsertFolder%\MSERT.exe"
+) else (
+      echo No server connection. Starting Microsoft Safety Scanner...
+      timeout /t 3 > nul
+   )
+if exist "%MsertFolder%\MSERT.exe" (
+   start "" "%MsertFolder%\MSERT.exe"
+   exit
+) else (
+   echo There is no "MSERT.exe" in "%MsertFolder%". Please check your internet connection and try again.
+   pause > nul
+   exit
+)
