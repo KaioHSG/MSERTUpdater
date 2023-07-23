@@ -23,7 +23,7 @@ if %ErrorLevel% equ 0 (
 ) else (
       echo No server connection. Starting Microsoft Safety Scanner...
       timeout /t 3 > nul
-   )
+)
 if exist "%MsertFolder%\MSERT.exe" (
    start "" "%MsertFolder%\MSERT.exe"
    exit
