@@ -21,8 +21,8 @@ if %ErrorLevel% equ 0 (
    echo Updating Microsoft Safety Scanner...
    bitsadmin /transfer "Update Microsoft Safety Scanner" /priority foreground "%MsertServer%" "%MsertFolder%\MSERT.exe"
 ) else (
-      echo No server connection. Starting Microsoft Safety Scanner...
-      timeout /t 3 > nul
+   echo No server connection. Starting Microsoft Safety Scanner...
+   timeout /t 3 > nul
 )
 if exist "%MsertFolder%\MSERT.exe" (
    start "" "%MsertFolder%\MSERT.exe"
