@@ -1,6 +1,6 @@
 @echo off
 set MsertFolder=C:\Temp\Microsoft Safety Scanner
-set MsertServer=https://go.microsoft.com/fwlink/?LinkId=212732
+set MsertServer=https://go.microsoft.com/fwlink/?LinkId=212733
 set MsertServerTest=go.microsoft.com
 title Microsoft Safety Scanner Updater
 tasklist /nh /fi "imagename eq MSERT.exe" | findstr /l /i "MSERT.exe" > nul
