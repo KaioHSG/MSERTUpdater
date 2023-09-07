@@ -1,8 +1,8 @@
 @echo off
 set MsertFolder=C:\Temp\Microsoft Safety Scanner
-set Msert86Server=https://go.microsoft.com/fwlink/?LinkId=212733
-set Msert64Server=https://go.microsoft.com/fwlink/?LinkId=212732
 set MsertServerTest=go.microsoft.com
+set Msert64Server=https://go.microsoft.com/fwlink/?LinkId=212732
+set Msert86Server=https://go.microsoft.com/fwlink/?LinkId=212733
 title Microsoft Safety Scanner Updater
 tasklist /nh /fi "imagename eq MSERT.exe" | findstr /l /i "MSERT.exe" > nul
 if %ErrorLevel% equ 0 (
@@ -15,12 +15,17 @@ if %ErrorLevel% equ 0 (
 
 :ServerTest
 ping /n 1 %MsertServerTest% > nul
+wmic os get osarchitecture | findstr /l /c:"64-bit" > nul
+if %ErrorLevel% equ 0 (
+   set MsertServer=%Msert64Server%
+) else (
+   set MsertServer=%Msert86Server%
+)
 if %ErrorLevel% equ 0 (
    if not exist "%MsertFolder%" (
       mkdir "%MsertFolder%"
    )
-   echo Updating Microsoft Safety Scanner...
-   bitsadmin /transfer "Update Microsoft Safety Scanner" /priority foreground "%Msert64Server%" "%MsertFolder%\MSERT.exe"
+   bitsadmin /transfer "Update Microsoft Safety Scanner" /priority foreground "%MsertServer%" "%MsertFolder%\MSERT.exe"
 ) else (
    echo No server connection. Starting Microsoft Safety Scanner...
    timeout /t 3 > nul
