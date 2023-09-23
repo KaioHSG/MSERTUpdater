@@ -14,13 +14,13 @@ if %ErrorLevel% equ 0 (
 )
 
 :ServerTest
-ping /n 1 %MsertServerTest% > nul
 wmic os get osarchitecture | findstr /l /c:"64-bit" > nul
 if %ErrorLevel% equ 0 (
    set MsertServer=%Msert64Server%
 ) else (
    set MsertServer=%Msert86Server%
 )
+ping /n 1 %MsertServerTest% > nul
 if %ErrorLevel% equ 0 (
    if not exist "%MsertFolder%" (
       mkdir "%MsertFolder%"
