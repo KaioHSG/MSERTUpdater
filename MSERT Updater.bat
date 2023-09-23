@@ -9,11 +9,7 @@ if %ErrorLevel% equ 0 (
    echo Microsoft Safety Scanner is running. Exiting...
    timeout /t 5 > nul
    exit
-) else (
-   goto :ServerTest
 )
-
-:ServerTest
 wmic os get osarchitecture | findstr /l /c:"64-bit" > nul
 if %ErrorLevel% equ 0 (
    set MsertServer=%Msert64Server%
