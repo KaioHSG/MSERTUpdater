@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/version-1.1-green)](https://github.com/KaioHSG/msert-updater/releases/latest)
+[![Version](https://img.shields.io/badge/version-1.2-green)](https://github.com/KaioHSG/msert-updater/releases/1.2)
 [![Downloads](https://img.shields.io/github/downloads/KaioHSG/msert-updater/total)](https://github.com/KaioHSG/msert-updater/releases)
 
 # Microsoft Safety Scanner Updater
