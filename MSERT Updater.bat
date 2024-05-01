@@ -10,8 +10,8 @@ if %ErrorLevel% equ 0 (
    timeout /t 5 > nul
    exit
 )
-wmic os get osarchitecture | findstr /l /c:"64-bit" > nul
-if %ErrorLevel% equ 0 (
+wmic os get osarchitecture | findstr /l /c:"64-bit"
+if %ErrorLevel% equ 1 (
    set MsertServer=%Msert64Server%
 ) else (
    set MsertServer=%Msert86Server%
