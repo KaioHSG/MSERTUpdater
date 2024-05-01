@@ -5,8 +5,6 @@
 
 Use this simple .bat script to download the latest version of MSERT, the malware remover utility, thus having a portable antivirus.
 
-Download [here](https://github.com/KaioHSG/msert-updater/releases/latest).
-
 ## Documentation
 
 * [Microsoft Learn](https://learn.microsoft.com/microsoft-365/security/intelligence/safety-scanner-download)
