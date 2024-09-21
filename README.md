@@ -1,6 +1,6 @@
 [![Release](https://img.shields.io/github/v/release/KaioHSG/msert-updater)](https://github.com/KaioHSG/msert-updater/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/KaioHSG/msert-updater/total)](https://github.com/KaioHSG/msert-updater/releases)
-[![VirusTotal](https://img.shields.io/badge/virus_total-status-navy)](https://www.virustotal.com/gui/file/1a38ec0c45378920e2b2c4b912ea43e83bde65ee4977f02c5417a8e47c8663e1)
+[![VirusTotal](https://img.shields.io/badge/virustotal-status-navy)](https://www.virustotal.com/gui/file/1a38ec0c45378920e2b2c4b912ea43e83bde65ee4977f02c5417a8e47c8663e1)
 
 # Microsoft Safety Scanner Updater
 
